@@ -1,0 +1,21 @@
+{
+  "pages":[
+    
+    "pages/home/home",
+    "pages/detail/detail",
+    "pages/bannerList/bannerList",
+    "pages/history/history",
+    "pages/search/search",
+    "pages/searchResult/searchResult",
+    "pages/nullTip/nullTip",
+    "pages/filmList/filmList",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "优蓝网",
+    "navigationBarTextStyle":"white"
+  }
+}

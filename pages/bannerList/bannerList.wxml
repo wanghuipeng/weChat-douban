@@ -1,0 +1,135 @@
+<view class="page"> 
+ 
+   <view class="top"  hidden="{{or1}}">
+        <view class="search-input">
+            <icon type="search" size="16"/> 
+            <input type="text" placeholder="搜索"  bindtap="showSearch" /> 
+        </view>
+    </view>
+
+    <view class="top" hidden="{{or2}}">
+        <view class="search-bar" style="background-color:#2BB7AB">
+            <view class="search-l">
+                <icon type="search" size="15"/>
+                <input type="text" placeholder="请输入..." value="{{inputVal}}" />
+                <icon type="cancel" size="15" color="#999" bindtap="removeVal" />
+            </view>
+            <view class="search-r">
+                <text class="cancel" bindtap="returnSearch">取消</text>
+            </view>
+        </view>
+    </view>  
+    
+    <view class="filter">
+        <view class="item" bindtap="workYear">
+             <text>{{_year}}</text>
+             <image src="../../image/arrow-d.png" class="{{showRotate1?'rotate':''}}"></image>
+        </view>
+        <view class="item" bindtap="treatment">
+             <text>{{_treatment}}</text>
+             <image src="../../image/arrow-d.png" class="{{showRotate2?'rotate':''}}"></image>
+        </view>
+        <view class="item" bindtap="more">
+             <text>{{_more}}</text>
+             <image src="../../image/arrow-d.png" class="{{showRotate3?'rotate':''}}"></image>
+        </view>
+    </view>
+    
+    <view class="filter-items">
+        <!--工作年限-->
+        <view  class="{{showYear?'show':''}} s_flowindow" bindtap="closeShadow">
+        </view>
+        <view class="{{showYear?'show':''}} s_content">
+            <view bindtap="selectYear" wx:for="{{year}}" class="{{yearId == item.id ? 'active' :''}} s_list" data-year="{{item.year}}" data-id="{{item.id}}">
+                {{item.year}} <image wx:if="{{yearId == item.id ? 'true' :''}}" class="image_duihao" src="image/_109.png"></image>
+            </view>
+        </view>
+
+        <!--薪资待遇-->
+        <view  class="{{showTreatment?'show':''}} s_flowindow" bindtap="closeShadow">
+        </view>
+        <view class="{{showTreatment?'show':''}} s_content">
+            <view bindtap="selectTreatment" wx:for="{{treatment}}" class="{{treatmentId == item.id ? 'active' :''}} s_list" data-treatment="{{item.treatment}}" data-id="{{item.id}}">
+                {{item.treatment}} <image wx:if="{{treatmentId == item.id ? 'true' :''}}" class="image_duihao" src="image/_109.png"></image>
+            </view>
+        </view>
+
+        <!--更多条件-->
+        <view  class="{{showMore?'show':''}} s_flowindow" bindtap="closeShadow">
+        </view>
+        <view class="{{showMore?'show':''}} s_more">
+            <view class="left">
+                <view wx:for="{{moreChild}}" bindtap="sec_child" data-id="{{item.id}}" class="{{moreId == item.id?'li_show':''}} left_list">
+                    <view>{{item._type}} <text>{{item.text}}</text></view>
+                    <image class="image_jiantou_two" src="../workplace/image/jiantou_tou.png"></image>
+                </view>
+            </view>
+            <view class="right">
+                <view wx:for="{{moreChildList}}" bindtap="sec_child_list" data-val="{{item.post}}" data-id="{{item.id}}" class="right_list">
+                    <view>
+                        {{item.post}}
+                    </view>
+                    <image wx:if="{{listId == item.id ? 'true' :''}}" class="image_jiantou_two" class="image_duihao" src="image/_109.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <scroll-view style="height: 100vh;" scroll-y="true" class="container film-list" bindscroll="scroll" bindscrolltolower="scrolltolower">
+    
+      <block wx:for="{{films}}" wx:key="film_key" wx:for-item="film">
+        <view class="film-item" bindtap="viewDetail" data-id="{{film.id}}" data-title="{{film.title}}">
+          
+          <view class="film-image">
+            <image src="{{film.images.large}}"></image>
+          </view>
+
+          <view class="film-info">
+            <view>
+              <text class="film-title">{{film.title}}</text>
+              <text class="film-year">{{film.year}}</text>
+            </view>
+            <view class="film-rating">
+              <block wx:if="{{film.rating.average > 0}}">
+                <text class="label">评分</text>
+                <text class="rating">{{film.rating.average}}</text>
+              </block>
+              <block wx:else>
+                <text class="label">暂无评分</text>
+              </block>
+            </view>
+            <view class="directors">
+              <text class="label">导演</text>
+              <block wx:for="{{film.directors}}" wx:key="directors_key" wx:for-item="director">
+                <text class="person">{{director.name}}</text>
+              </block>
+            </view>
+            <view class="casts">
+              <text class="label">主演</text>
+              <block wx:for="{{film.casts}}" wx:key="casts_key" wx:for-item="cast">
+                <text class="person">{{cast.name}}</text>
+              </block>
+            </view>
+          </view> 
+          
+        </view>
+      </block>
+
+      <view class="load-more-wrap">
+        <block wx:if="{{hasMore}}">
+          <view class="load-content">
+            <text class="weui-loading"/><text class="loading-text">玩命加载中</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="load-content">
+            <text>没有更多内容了</text>
+          </view>
+        </block>
+      </view>
+
+  </scroll-view>
+
+</view> 
+
+

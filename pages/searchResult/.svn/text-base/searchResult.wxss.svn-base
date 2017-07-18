@@ -1,0 +1,2 @@
+@import '../filmList/filmList.wxss';
+@import '../nullTip/nullTip.wxss';

@@ -1,0 +1,19 @@
+.page{display: flex;flex-direction: column;height:100%;overflow: hidden}
+.header{height: 60px;background-color: #2BB7AB;padding: 10px 15px 0 15px;}
+.header .header-r{float:right;}
+.header .header-r text{color: #fff;margin-right: 10px;}
+.header .header-r image{width: 80rpx;height: 80rpx;border-radius: 20px;vertical-align: middle}
+.header .header-l{display: inline-block;line-height: 40px}
+.header .header-l text{color: #fff;margin-left: 5px;}
+.header .header-l image{width: 35rpx;height: 35rpx;vertical-align: -4rpx}
+
+.items{background-color: #fff;width: 100%;}
+.items .item{text-align: center;width: 25%;display: inline-block;}
+.items .item image{width: 45px;height:45px;display: inline-block;padding-top: 10px}
+.items .item text{font-size: 28rpx;color: #666;display: block;padding-bottom:10px;}
+
+.city{position: absolute;top: 55px;left: 0;bottom: 0;background-color: #fff;z-index: 10}
+.city .item{width: 100%;display: flex;flex-direction: column;}
+.city .item .title{color: #999}
+.city .item text{height: 30px;line-height: 30px;border-bottom: 1rpx solid #eee;flex: 1;padding: 0 15px;}
+.slide-image{width: 100%}

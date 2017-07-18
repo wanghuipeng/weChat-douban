@@ -1,0 +1,15 @@
+.page{display: flex;flex-direction: column;min-height:100%;}
+.cont{flex-grow:1;display: flex;align-self: center;}
+.cont text{color: #999;align-self: center;}
+.top .search-bar{background-color: #e6e6e6;display:flex;flex-direction: row;padding:10px 0px;height: 30px;line-height: 30px;position:relative;
+}
+.top .search-bar .search-l{display: flex;flex-direction: row;align-items: center;background-color: #fff;height: 30px;width: 85%;margin-left: 15px;border-radius: 4px;padding: 0 5px}
+.top .search-bar .search-l icon{vertical-align: middle;line-height: 40px;margin-top: 13px}
+.top .search-bar .search-l input{padding: 0 10px 0 5px;width: 100%}
+.top .search-bar .search-r{width: 15%;margin-right: 15px;text-align: center;position:relative;}
+.top .search-bar .search-r .btn-submit1{color: orangered;font-size: 14px;font-weight:600;background-color: transparent;position: inherit;display: inline-block;padding: 0}
+.top .search-bar .search-r .btn-submit2{color: #666;font-size: 14px;background-color: transparent;position: inherit;display: inline-block;padding: 0}
+.top .search-list .item{height: 40px;line-height: 40px;padding: 0 35px;border-bottom: 1rpx solid #eee;}
+.top .search-list .item:first-child{height: 30px;line-height: 30px;font-size: 12px}
+.top .search-list .item .title{color: #999}
+button::after{border:none}
